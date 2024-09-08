@@ -99,8 +99,12 @@ for (var i = 0; i < ENGINE_INPUT_MAX_DEVICE_COUNT; i++)
 		
 	    if _vibration[i] >= 0
 	    {
+			if _vibration[i] == 0
+			{
+				gamepad_set_vibration(_pad_id, 0, 0);
+			}
+			
 			_vibration[i]--;
-	        gamepad_set_vibration(_pad_id, 0, 0);
 	    }
 
 	    var _lv_value = gamepad_axis_value(_pad_id, gp_axislv);

@@ -28,8 +28,6 @@ function camera_new(_index, _width, _height, _canvas_width, _canvas_height, _pos
 	var _camera_struct =
 	{
 		index: _index,
-		surface_x: _canvas_x,
-		surface_y: _canvas_y,
 		allow_movement: true,
 		target: noone,
 		vel_x_max: _vel_x_max,
@@ -57,12 +55,13 @@ function camera_new(_index, _width, _height, _canvas_width, _canvas_height, _pos
 		coarse_y_last: 0,
 		
 		// Private
+		surface_x: _canvas_x,
+		surface_y: _canvas_y,
 		surface_w: _canvas_width + ENGINE_RENDERER_HORIZONTAL_BUFFER * 2,
 		surface_h: _canvas_height
 	};
 	
 	// Create a new camera view
-	camera_destroy(view_camera[_index]);
 	view_camera[_index] = camera_create_view(_camera_struct.pos_x, _camera_struct.pos_y, _width + ENGINE_RENDERER_HORIZONTAL_BUFFER * 2, _height);
 	view_visible[_index] = true;
 	
