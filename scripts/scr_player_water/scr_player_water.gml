@@ -3,7 +3,7 @@ function scr_player_water()
 {
 	gml_pragma("forceinline");
 
-	if !instance_exists(c_stage) || !c_stage.water_enabled
+	if !instance_exists(c_stage) || !c_stage.water_enabled || state == PLAYER_STATE_DEATH
 	{
 		exit;
 	}
