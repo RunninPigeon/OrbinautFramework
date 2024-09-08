@@ -1,4 +1,4 @@
-/// @self
+/// @self c_object
 /// @description Handles collision detection and response between the player and a solid object.
 /// @param {Id.Instance} player The player object instance.
 /// @param {Enum.SOLIDOBJECT} type The type of solid object.

@@ -276,14 +276,16 @@ if state != STATE_NORMAL
 	    }
 		
 		// Add objects to the ds_cull_list_pause list to let the engine draw them later
-		if !_framework.is_initial_cull || _behaviour <= CULLING.ACTIVE || obj_is_visible()
+		if _framework.is_initial_cull || _behaviour <= CULLING.ACTIVE || obj_is_visible()
 		{
 			ds_list_add(_framework.ds_cull_list_pause, id);
 		}
 		
 	    instance_deactivate_object(id);
 	}
-} 
+	
+	is_initial_cull = false;
+}
 else 
 {
 	// Reactivate the objects added to the ds_cull_list_pause list

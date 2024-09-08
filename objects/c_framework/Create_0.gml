@@ -182,8 +182,6 @@ m_framework_activate_stopped_objects = function()
 	
 		ds_list_clear(ds_cull_list_pause);
 	}
-	
-	is_initial_cull = false;
 }
 
 // Initialise the framework
