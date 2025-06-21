@@ -39,7 +39,7 @@ If you have any questions about the framework, feel free to use the [Discussions
 
 ## Credits
 
-- **Project Lead**: Triangly
+- **Founders**: Triangly, Michael Gallinago
 - **Programmers**: Triangly, Michael Gallinago, techncolour
 - **Framework Branding & Sprite Edits**: Natufox
 - **Framework Trailer**: Lapper, Triangly
