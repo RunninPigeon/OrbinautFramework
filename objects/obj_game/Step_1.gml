@@ -14,6 +14,25 @@ with obj_gameobject
 
 var _prev_state = state;
 
+// Can't do this in Room Start because some objects use Room Start as well
+if !room_start_cull_done
+{
+	with obj_gameobject
+	{
+		if culler != noone
+		{
+			_run_cull_action(culler);
+		}	
+	}
+	
+	FOR_EACH_VISIBLE_VIEW
+	{
+		instance_activate_region(view_data[_v].coarse_x, view_data[_v].coarse_y, camera_get_culling_width(_v) - 1, camera_get_culling_height(_v) - 1, true);
+	}
+	
+	room_start_cull_done = true;
+}
+
 var _act_1a = ord("A"), _act_1b = ord("Z");
 var _act_2a = ord("S"), _act_2b = ord("X");
 var _act_3a = ord("D"), _act_3b = ord("C");

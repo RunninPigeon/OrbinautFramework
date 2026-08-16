@@ -101,31 +101,40 @@ function ConstCuller(_action, _inst_id) constructor
 				break;
 			}
 		}
+		
+		// Run action
+		_run_cull_action(self);
+	}
+}
 
-		switch action
-		{
-			case CULL_ACTION.DESTROY:
-				instance_destroy(inst_id);
-			break;
-		
-			case CULL_ACTION.PAUSE:
-				instance_deactivate_object(inst_id);
-			break;
+/// @self event_culler
+function _run_cull_action(_culler)
+{
+	var _inst_id = _culler.inst_id;
 	
-			case CULL_ACTION.RESET:
-			
-				reset_on_load = true;
-				inst_id.x = inst_id.xstart;
-				inst_id.y = inst_id.ystart;
-				
-				with inst_id
-				{
-					event_perform(ev_destroy, 0);
-				}
-				
-				instance_deactivate_object(inst_id);
+	switch _culler.action
+	{
+		case CULL_ACTION.DESTROY:
+			instance_destroy(_inst_id);
+		break;
 		
-			break;
-		}
+		case CULL_ACTION.PAUSE:
+			instance_deactivate_object(_inst_id);
+		break;
+			
+		case CULL_ACTION.RESET:
+		
+			_culler.reset_on_load = true;
+			_inst_id.x = _inst_id.xstart;
+			_inst_id.y = _inst_id.ystart;
+			
+			with _inst_id
+			{
+				event_perform(ev_destroy, 0);
+			}
+				
+			instance_deactivate_object(_inst_id);
+		
+		break;
 	}
 }
